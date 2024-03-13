@@ -49,7 +49,7 @@ html::before {
 }
 
 body {
-    /* background-color: white; */
+    scroll-behavior: smooth;
 }
 
 header {
@@ -96,6 +96,10 @@ header {
 
     /* mix-blend-mode: plus-lighter; */
     /* mix-blend-mode: plus-darker; */
+}
+
+header h1 a {
+    color: inherit;
 }
 
 header h1 {
