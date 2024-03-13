@@ -1,0 +1,175 @@
+:root {
+    --bg: url(https://chiliseitz.de/thumbs/works/girls/6rocke-567x425.jpg);
+    --bg: url(https://chiliseitz.de/thumbs/works/girls/zeichnung2-1200x1600.jpg);
+    --bg: url(https://chiliseitz.de/thumbs/works/widok/foto1-1200x1600.jpg);
+    --bg: url(https://chiliseitz.de/thumbs/works/intertidal-ecographies/chili-flys_1.1.1-1200x675.jpg);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* outline: 1px solid red; */
+}
+
+img,
+video {
+    max-width: 100%;
+}
+
+html {
+    height: calc(100% + env(safe-area-inset-top));
+    height: 100svh;
+    font-family: system-ui, "Segoe UI", Roboto, Cantarell, "Helvetica Neue",
+        Helvetica, Arial, sans-serif;
+}
+
+body {
+    min-height: 100%;
+    overflow-x: clip;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+        env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+html::before {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    z-index: -1;
+    background-image: var(--bg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+body {
+    /* background-color: white; */
+}
+
+header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+
+    overflow-x: clip;
+
+    z-index: 30;
+
+    font-size: clamp(67px, calc(226vmin / 11), 800px);
+
+    height: 1em;
+    margin: calc(50svh - 0.5em) 0;
+
+    /* isolation: isolate; */
+    background-image: var(--bg);
+    background-clip: text;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-position: calc(50% - 10px) calc(50% - 10px); */
+    /* Position the background image pixel perfect above the
+        html background to make the text disappear */
+    background-size: auto calc(100svh - env(safe-area-inset-top));
+
+    /* background-size: cover; */
+    /* background-attachment: fixed; */
+
+    /* filter: grayscale(0.5); */
+    /* filter: grayscale(1) brightness(1.5) contrast(1.5); */
+    filter: brightness(calc(2 - clamp(0, var(--scrollyvp), 1))) contrast(1);
+    filter: brightness(2) contrast(1) drop-shadow(5px 5px white);
+
+    /* mix-blend-mode: color-burn; */
+    /* mix-blend-mode: difference; */
+    /* mix-blend-mode: overlay; */
+    /* mix-blend-mode: screen; */
+    /* mix-blend-mode: hard-light; */
+    /* mix-blend-mode: soft-light; */
+    /* mix-blend-mode: color; */
+    /* mix-blend-mode: hue; */
+    /* mix-blend-mode: exclusion; */
+
+    /* mix-blend-mode: plus-lighter; */
+    /* mix-blend-mode: plus-darker; */
+}
+
+header h1 {
+    text-shadow: 2px 2px
+        rgba(0, 0, 0, calc(0.5 * (1 - clamp(0, var(--scrollyvp), 1))));
+}
+
+header {
+    white-space: nowrap;
+    font-weight: 900;
+
+    display: grid;
+    grid-template: 100% / auto 1fr;
+    gap: 0.5ch;
+}
+
+header h1 {
+    font-size: inherit;
+    font-weight: inherit;
+    color: transparent;
+
+    letter-spacing: calc(-0.2ch * clamp(0, var(--scrollyvp), 1));
+    transition: letter-spacing 0.1s ease-out;
+
+    place-self: end center;
+    place-self: center center;
+}
+
+header nav {
+    font-size: clamp(10px, 0.25em, 2rem);
+    font-weight: 600;
+    margin-top: 0.5em;
+    place-self: start end;
+
+    display: grid;
+    grid-template: repeat(2, 1.5em) / repeat(2, 5ch);
+    grid-template-columns: 7ch;
+    row-gap: 0.5em;
+    justify-items: end;
+    /* opacity: calc(1 * clamp(0, var(--scrollyvp), 1)); */
+}
+
+nav > * {
+    display: inline-flex;
+    transition: background-color 0.2s;
+    background-color: #ffffff8f;
+    background-color: #ffffff;
+    padding: 0.25em;
+    padding-right: 1em;
+    justify-content: end;
+}
+
+nav a {
+    color: black;
+    align-items: center;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: white;
+}
+
+main {
+    /* padding: 1rem; */
+    background-color: #fff;
+    background-clip: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 1rem;
+}
+
+@media (max-width: 400px) {
+    main {
+        grid-template: auto / 1fr;
+    }
+}
